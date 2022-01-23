@@ -9,7 +9,7 @@
     <com.example.ticker.core.ui.Ticker
         android:id="@+id/time_picker"
         android:layout_width="300dp"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,5 +17,14 @@
         app:hoursFormat="hours12"
         app:shouldAmSelected="false"
         app:minutesInterval="0"/>
+
+    <Button
+        android:id="@+id/btn_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        app:layout_constraintTop_toBottomOf="@id/time_picker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

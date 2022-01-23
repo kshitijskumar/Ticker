@@ -3,7 +3,6 @@ package com.example.ticker.core.ui
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewTreeObserver
 import androidx.annotation.ColorRes
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +14,6 @@ import com.example.ticker.R
 import com.example.ticker.core.adapter.TickerTimeAdapter
 import com.example.ticker.core.adapter.ZoomCenterItemLayoutManager
 import com.example.ticker.databinding.LayoutTickerBinding
-import java.lang.Exception
 import kotlin.math.max
 
 class Ticker @JvmOverloads constructor(
@@ -28,21 +26,6 @@ class Ticker @JvmOverloads constructor(
         private const val HOURS_12_FORMAT = 12
         private const val HOURS_24_FORMAT = 24
     }
-
-//    constructor(context: Context) : super(context)
-//    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-//        this.attrs = attrs
-//    }
-//
-//    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context,
-//        attrs,
-//        defStyleAttr) {
-//        this.attrs = attrs
-//        this.deffStyleAttr = defStyleAttr
-//    }
-//
-//    private var attrs: AttributeSet? = null
-//    private var deffStyleAttr: Int = 0
 
     private val binding: LayoutTickerBinding =
         LayoutTickerBinding.inflate(LayoutInflater.from(context), this, true)
@@ -197,6 +180,8 @@ class Ticker @JvmOverloads constructor(
                 val padding = height / 2 - 20
                 binding.rvHours.setPadding(0, padding, 0, padding)
                 binding.rvMinutes.setPadding(0, padding, 0, padding)
+
+                binding.root.viewTreeObserver.removeOnGlobalLayoutListener(this)
             }
         })
     }
@@ -230,5 +215,31 @@ class Ticker @JvmOverloads constructor(
         rv.postDelayed(scrollRunnable, 100)
     }
 
+    /**
+     * Returns the currently selected time
+     * @param format: Return format for time, default HH:MM FORMAT
+     */
+    fun getCurrentlySelectedTime(format: String = "HH:MM FORMAT") : String{
+        return format.replace("HH", currentlySelectedHour)
+            .replace("MM", currentlySelectedMinute)
+            .replace("FORMAT", if (isAmSelected) "Am" else "Pm")
+    }
+
+    /**
+     * Sets the currently selected time for the time picker
+     * Format HH:MM FORMAT
+     */
+    fun setInitialSelectedTime(initialTime: String) {
+        val timeAndAMPmSplit = initialTime.split(" ")
+        if (timeAndAMPmSplit.size < 2) return
+        val hourAndMinuteSplit = timeAndAMPmSplit[0].split(":")
+        if (hourAndMinuteSplit.size < 2) return
+        currentlySelectedHour = hourAndMinuteSplit[0]
+        currentlySelectedMinute = hourAndMinuteSplit[1]
+        isAmSelected = timeAndAMPmSplit[1].equals("Am", true)
+        if (isAmSelected) binding.tvAm.performClick() else binding.tvPm.performClick()
+        scrollToCurrentTime(binding.rvHours, true)
+        scrollToCurrentTime(binding.rvMinutes, false)
+    }
 
 }
