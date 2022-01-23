@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Kshitij/AndroidStudioProjects/Tickerdemo/app/src/main/res/layout/activity_main.xml" value="0.14791666666666667" />
+        <entry key="..\:/Users/Kshitij/AndroidStudioProjects/Tickerdemo/ticker/src/main/res/drawable/ic_time_separating_colons.xml" value="0.1425925925925926" />
+        <entry key="..\:/Users/Kshitij/AndroidStudioProjects/Tickerdemo/ticker/src/main/res/layout/layout_default_ticker_time.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Kshitij/AndroidStudioProjects/Tickerdemo/ticker/src/main/res/layout/layout_ticker.xml" value="0.21505376344086022" />
+        <entry key="..\:/Users/Kshitij/AndroidStudioProjects/Tickerdemo/ticker/src/main/res/layout/picker.xml" value="0.16197916666666667" />
       </map>
     </option>
   </component>

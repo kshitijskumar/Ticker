@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Ticker">
+        <attr name="hoursFormat" format="enum">
+            <enum name="hours12" value="12"/>
+            <enum name="hours24" value="24"/>
+        </attr>
+        <attr name="minutesInterval" format="integer"/>
+        <attr name="shouldAmSelected" format="boolean"/>
+    </declare-styleable>
+</resources>
