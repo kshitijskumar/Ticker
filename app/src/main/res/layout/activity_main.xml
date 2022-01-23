@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:hoursFormat="hours12"
+        app:hoursFormat="hours24"
         app:shouldAmSelected="false"
         app:minutesInterval="0"/>
 

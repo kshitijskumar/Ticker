@@ -220,9 +220,12 @@ class Ticker @JvmOverloads constructor(
      * @param format: Return format for time, default HH:MM FORMAT
      */
     fun getCurrentlySelectedTime(format: String = "HH:MM FORMAT") : String{
+        val finalFormat = if (shouldBeIn12HourFormat) {
+            if (isAmSelected) "Am" else "Pm"
+        } else ""
         return format.replace("HH", currentlySelectedHour)
             .replace("MM", currentlySelectedMinute)
-            .replace("FORMAT", if (isAmSelected) "Am" else "Pm")
+            .replace("FORMAT", finalFormat)
     }
 
     /**
