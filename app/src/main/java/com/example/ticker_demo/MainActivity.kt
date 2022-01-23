@@ -21,8 +21,9 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, timeSelected, Toast.LENGTH_SHORT).show()
         }
 
-        Handler(Looper.getMainLooper()).postDelayed({
+        binding.btnSet.setOnClickListener {
             binding.timePicker.setInitialSelectedTime("10:40 Am")
-        }, 2000)
+        }
+
     }
 }
