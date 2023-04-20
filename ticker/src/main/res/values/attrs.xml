@@ -8,7 +8,7 @@
         <attr name="minutesInterval" format="integer"/>
         <attr name="shouldAmSelected" format="boolean"/>
         
-        <attr name="selectedNumberColor" format="color" defaultValue="#000000"/>
-        <attr name="otherNumberColor" format="color" defaultValue="#808080"/>
+        <attr name="unselectedColor" format="color" defaultValue="#000000"/>
+        <attr name="unselectedColor" format="color" defaultValue="#808080"/>
     </declare-styleable>
 </resources>
